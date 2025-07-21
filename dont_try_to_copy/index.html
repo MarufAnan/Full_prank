@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            margin: 50px;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwVhXdn5QmivU2WFOni4g4Hf21u3YQc8f2lA&s);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1,
+        h2 {
+            color: white;
+            font-family: "Titan One", cursive;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            color: rgb(217, 61, 61);
+            font-family: 'Freckle Face', cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Would you wanna copy this text?</h1>
+    <h2>Don't...</h2>
+    <h2>Okay no suspense — just copy it and paste somewhere like Gmail</h2>
+    <h2>You’ll understand... 😈</h2>
+    <h2>Copy me... if you dare 😈</h2>
+
+    <audio id="prankSound" src="https://www.myinstants.com/media/sounds/trololo.mp3" preload="auto"></audio>
+
+    <script>
+        const sound = document.getElementById("prankSound");
+
+        document.addEventListener('copy', function (event) {
+            const htmlContent = `
+                <p style="font-size:18px;">😈 You copied this? mana kiya tha na firbhi kiya ...🤡💩🖕</p>
+                <img src="https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif" width="200">
+            `;
+
+            const textContent = "🖕You copied this? mana kiya tha na fibhi kiya ...🤡💩🖕";
+
+            event.clipboardData.setData('text/plain', textContent);
+            event.clipboardData.setData('text/html', htmlContent);
+            event.preventDefault();
+
+            sound.play().catch(err => {
+                console.log("Audio blocked until interaction:", err.message);
+            });
+        });
+    </script>
+</body>
+
+</html>
